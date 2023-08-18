@@ -11,6 +11,8 @@ Beatstream is an app for streaming music from your computer to anywhere with a m
 
 ### Installation
 
+#### Using host
+
     $ git clone --recursive git://github.com/Darep/Beatstream.git
     $ cd Beatstream
     $ bundle
@@ -22,6 +24,17 @@ Beatstream is an app for streaming music from your computer to anywhere with a m
     -> User.create(:username => 'you', :email => 'you@where.ever', :password => 'secret', :password_confirmation => 'secret')
     -> exit
     $ rails server -d
+
+#### Using docker
+
+```bash
+$ cp config/initializers/music_paths.rb.sample config/initializers/music_paths.rb
+$ docker compose build app
+$ docker compose run --rm app bundle install
+$ docker compose run --rm app bundle exec rake db:migrate
+$ docker compose run --rm app bundle exec rake db:seed
+$ docker compose up
+```
 
 Open Chrome and surf to http://0.0.0.0:3000 address. Log in and wait when indexing ends, refresh page and happy listening!
 
