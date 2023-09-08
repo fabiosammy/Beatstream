@@ -2,13 +2,15 @@ source 'https://rubygems.org'
 
 ruby '2.2.5'
 
-gem 'rails', '4.0'
+gem 'rails', '~> 4.0.1'
 
 # ID3 info parser
 gem 'ruby-mp3info', '0.8.10', :require => 'mp3info'
 
 # Last.fm
 gem 'rockstar', '0.8.0'
+
+gem 'byebug'
 
 platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter', '1.2.9'

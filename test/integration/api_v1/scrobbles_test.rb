@@ -49,6 +49,7 @@ class ApiV1::ScrobblesTest < ActionDispatch::IntegrationTest
   test 'should return "not connected to Last.fm" error if user has not linked to last.fm' do
     claire = users(:claire)
     session[:user_id] = claire.id
+    byebug
     post '/api/v1/songs/scrobble?artist=Silence&title=30%20second%20silence', { :format => 'json' }, 'rack.session' => session
     assert_response 422
   end
